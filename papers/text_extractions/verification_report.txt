@@ -1,0 +1,182 @@
+TEXT-ONLY ACCESS COPY (automatically extracted from attached PDF)
+This is not the original typeset PDF; mathematical symbols may be degraded by extraction.
+Original PDF is retained in the local complete research ZIP.
+
+<PARSED TEXT FOR PAGE: 1 / 3>
+INDEPENDENT MATHEMATICAL AUDIT                                                     4 NOVEMBER 2026
+
+
+Referee Verification and Editorial Flags
+On the 3D contour-generator Willmore-type estimate
+Source note attributed to İmamverdi Bədəlov. This audit is not a certification of novelty
+or a machine-checked proof.
+
+
+
+
+Decision
+
+Main mathematical statement: VERIFIED.
+Two-page proof as originally submitted: FLAG — incomplete; repaired in the accom-
+panying paper.
+Sharpness and equality: VERIFIED for the stated smooth, compact, boundaryless set-
+ting.
+Projected-length identity: VERIFIED as a mathematical derivation; original attribu-
+tion and novelty unverified.
+Novelty / journal submission: QUALIFIED — priority research and human authorship
+review needed.
+The audited upper bound is
+                                                        ∫
+                       A(Σ) (             )                                    κ1 + κ 2
+             L(Σ)2 ≤          W(Σ) − πχ(Σ) ,       W=           H 2 dA,   H=            .
+                        2                                   Σ                     2
+
+The coefficient is exactly attained by a round sphere and thus is optimal. Its proof
+is valid after replacing the source note’s summary of coarea and genericity by an
+incidence-manifold argument.
+
+
+
+Proof ledger: what was actually checked
+
+Claim                  Status      Reason / repair
+
+Almost-                VERIFIED    Define M = {(p, u) : N (p) · u = 0}, a smooth compact
+everywhere                         3-manifold; apply Sard to M → S2 .
+regularity
+Exact average spa- VERIFIED        Apply coarea to both incidence projections and com-
+tial rim formula                   pute their 2-Jacobians explicitly.
+                                                         √
+Ellipse perimeter      VERIFIED    Jensen yields P ≤ π 2(κ21 + κ22 ) with the required co-
+estimate                           efficient.
+                                                                ∫
+Energy identity        VERIFIED    Use κ21 + κ22 = 4H 2 − 2K and K = 2πχ.
+Optimality             VERIFIED    Sphere radius r: L = 2πr, A = 4πr2 , W = 4π, χ = 2.
+Equality charac- VERIFIED          Jensen equality forces equal squared principal curva-
+terization                         tures; Cauchy–Schwarz forces constant |B|. Nontriv-
+                                   ial compact minimal components cannot occur.
+Projected contour      VERIFIED    The new coarea weight is |hBu, ui|, the absolute nor-
+extension                          mal curvature, not |Bu|.
+
+
+
+                                               1
+<PARSED TEXT FOR PAGE: 2 / 3>
+INDEPENDENT MATHEMATICAL AUDIT                                           4 NOVEMBER 2026
+
+
+Editorial and mathematical flags
+
+1. F1 — Incorrect submersion wording (repaired). The source calls p 7→ N (p) · u a
+   submersion; a real-valued smooth function on a compact surface always has critical
+   points. Only the zero level needs to be regular for almost all views.
+
+2. F2 — Unjustified transversality/stratification claim (repaired). The source ap-
+   peals to a codimension-one set without constructing the relevant map or proving the
+   stratification. Sard’s theorem on the incidence manifold is sufficient.
+
+3. F3 — Missing coarea Jacobian calculation (repaired). On M the relevant Jaco-
+   bians are J2 πp = (1 + |Bu|2 )−1/2 and J2 πu = |Bu|(1 + |Bu|2 )−1/2 .
+
+4. F4 — Degenerate ellipse ambiguity (repaired). The ellipse perimeter is inter-
+   preted as the length of its parameterized image, counting a collapsed segment twice.
+
+5. F5 — Visibility terminology (qualified). Spatial rim length, projected rim length
+   with multiplicity, and visible image silhouette length are not equal in general. The
+   corrected paper explicitly distinguishes them.
+
+6. F6 — Literature and priority (open). Existing work defines and studies contour
+   generators and apparent contours. A targeted search did not verify a previous state-
+   ment of these exact averaged formulas, but absence of a search hit is not evidence
+   of novelty.
+
+7. F7 — Added results and author attribution (open). Equality classification, lower
+   comparison, and projected identity were developed during this review. They should
+   not be silently presented as content of the original note or submitted without autho-
+   rial review.
+
+8. F8 — Hypothesis scope (qualified). The proof covers compact smooth oriented
+   surfaces without boundary in R3 . A surface with boundary or an unbounded surface
+   would require separate hypotheses or boundary/integrability provisions.
+
+
+
+Independent numerical falsification attempts
+
+For a ring torus (R, r), R > r, we computed both (i) the principal-curvature integrals and
+(ii) the lengths of directly traced rim curves for generic viewing directions followed by
+a directional average. Fixed-grid quadrature initially struggled near horizontal views;
+adaptive quadrature resolves the narrow peaks. The new projected-length formula was
+tested by the same two independent methods.
+
+                                                                    √
+                 Torus (R, r)            L            Lpr   bound    AW/2
+
+                 (2, 1)         28.23365907   23.19516093     29.99711051
+                  √
+                 ( 2, 1)        21.60993419   18.17206067     23.47400755
+                 (3, 0.5)       38.46296443   30.57402222     42.16912718
+
+
+The independently integrated direct rim values differed from the first column by less
+than 2×10−6 ; projected values differed by less than 10−5 at the chosen resolution. All are
+below the proposed upper bound. Sphere tests at radii 0.5, 1, and 3 give exact equality
+
+
+                                              2
+<PARSED TEXT FOR PAGE: 3 / 3>
+INDEPENDENT MATHEMATICAL AUDIT                                                 4 NOVEMBER 2026
+
+
+analytically. See the accompanying numerical_verification.py and its printed results.
+These tests are supplementary: a finite selection of surfaces cannot establish a theorem.
+
+
+
+Possible strengthening and practical interpretation
+
+The full rim length obeys the two-sided bound
+                             ∫                   ∫
+                           1                   1
+                               |B| dA ≤ L(Σ) ≤ √    |B| dA.
+                          π Σ                 2 2 Σ
+For projected parameterized contours, the independent identity is
+                                     ∫ ∫ 2π
+                                 1
+                      Lpr (Σ) =               |κ1 cos2 θ + κ2 sin2 θ| dθ dA.
+                                4π    Σ   0
+            ∫
+It yields 2 |H| dA ≤ Lpr ≤ L; for a convex ovaloid the left inequality becomes an
+          1
+
+equality. These observations are useful when the motivating application concerns two-
+dimensional projected contours rather than spatial rim curves.
+
+
+
+What remains unverified
+
+Novelty: no exhaustive review of the classical integral-geometry or computer-vision
+literature was performed; no claim of original priority is endorsed. Publication: the
+manuscript has not been externally peer reviewed. Formal verification: the proofs
+were audited mathematically and with reproducible numerical examples, but not trans-
+lated into a proof assistant such as Lean or Coq. Applications: no image-processing
+benchmarks or visibility-aware formulas have been established.
+
+
+
+Sources used for background checks
+
+• H. Federer, Geometric Measure Theory, Springer, 1969 (coarea theorem).
+• M. P. do Carmo, Differential Geometry of Curves and Surfaces, Prentice–Hall, 1976.
+• S. Plantinga and G. Vegter, “Computing Contour Generators of Evolving Implicit Sur-
+  faces,” ACM Transactions on Graphics 25 (2006), 1243–1280; publication page.
+
+
+
+
+Audit disposition: approve the corrected mathematical statements under the explicit assumptions;
+request originality and authorship review before journal submission.
+
+
+                                                3
