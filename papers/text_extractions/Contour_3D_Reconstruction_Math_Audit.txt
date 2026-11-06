@@ -1,0 +1,566 @@
+TEXT-ONLY ACCESS COPY (automatically extracted from attached PDF)
+This is not the original typeset PDF; mathematical symbols may be degraded by extraction.
+Original PDF is retained in the local complete research ZIP.
+
+<PARSED TEXT FOR PAGE: 1 / 9>
+Contour generators: mathematical and reconstruction audit                                 6 November 2026
+
+
+
+
+                    Contour Generator Inequalities
+          Verification, Sharp Refinements, and Value for 3D Reconstruction
+                  Independent mathematical assessment and consolidated results
+                                            6 November 2026
+
+
+  Bottom line. The proposed anisotropy correction is a valid, strictly sharper1
+  bound on the full spatial rim average. It is not currently a demonstrated im-
+  provement over established 3D reconstruction methods, since practical images
+  provide visible projected silhouettes rather than complete 3D rims, and the
+  correction uses curvatures of the reconstructed shape. For image-accessible
+  convex-hull silhouettes, Topping’s 2026 mean-width theorem supplies a sharper,
+  already-established inequality. The strongest immediate use is as a geometric
+  consistency certificate, not as a stand-alone reconstruction algorithm.
+
+
+Proven main refinement:
+                                                                   ∫
+                               A          A                             (κ21 − κ22 )2
+                        L2rim ≤ (W − πχ) − D,               D=              2     2 dA.                   (1)
+                                 2                 64                  Σ κ1 + κ2
+
+
+The quotient in D is taken to be zero when both curvatures vanish. No bibliographic
+originality is claimed for this refinement; it is an independently checked mathemati-
+cal deduction.
+
+
+1 Setting, observables, and why the distinction matters
+Let Σ ⊂ R3 be a nonempty smooth compact embedded orientable surface without
+boundary, unless otherwise specified. It may be nonconvex or disconnected. Set
+                                     ∫          ∫
+       1
+   H = 2 (κ1 + κ2 ), K = κ1 κ2 , A =   dA, W =    H 2 dA, χ = χ(Σ), q = κ21 + κ22 .
+                                               Σ               Σ
+
+For generic u ∈ S2 , the spatial rim is Γu = {p ∈ Σ : ⟨N (p), u⟩ = 0}, and
+                                           ∫
+                                         1
+                                Lrim =        H1 (Γu ) dω(u).
+                                        4π S2
+
+Define Πu to be orthogonal projection onto u⊥ . The projected rim length with multi-
+plicity averages the integral of |Πu T | over the tangent T to each rim branch, and is
+denoted Lproj . The average length of the actual visible projected silhouette is Lvis ,
+counting only image-set contours actually visible. The mean convex-hull projection
+perimeter is                         ∫
+                                   1
+                          Lhull =         Per(Πu conv Σ) dω(u).
+                                  4π S2
+They are different quantities. In the usual orthographic opaque-surface model, Lvis ≤
+Lproj ≤ Lrim , but neither Lhull = Lrim nor Lhull = Lvis holds in general. The convex
+hull of an observed silhouette can be used to obtain Lhull , assuming calibrated or-
+thographic views and complete object masks. Perspective data require additional
+modelling.
+  1
+      Strict whenever the anisotropy functional defined below is positive; not strict on every surface.
+
+
+
+
+                                                        1
+<PARSED TEXT FOR PAGE: 2 / 9>
+Contour generators: mathematical and reconstruction audit                   6 November 2026
+
+
+
+2 Exact spatial identity and original sharp bound
+Theorem 2.1 (Incidence-coarea identity). With B = −dN and Cp = {u ∈ S2 : u ⊥ N (p)},
+define the parametrized curvature-ellipse perimeter
+                         ∫                 ∫ 2π √
+                                                        2           2
+                PB (p) =   |Bp u| dH (u) =
+                                    1
+                                                 κ21 cos θ + κ22 sin θ dθ.
+                                 Cp                    0
+               ∫
+             1
+Then Lrim =      PB dA. Degenerate ellipses are counted by their parametrized lim-
+            4π Σ
+iting perimeter.
+
+Proof. Consider F (p, u) = ⟨N (p), u⟩ on Σ × S2 , and M = F −1 (0). At each (p, u) ∈ M ,
+N (p) ∈ Tu S2 and du F [N (p)] = 1, so M is a smooth compact three-manifold. Sard’s
+theorem applied to the projection πu : M → S2 yields smooth one-dimensional rim
+fibers for almost every u. On M , ∇p F = −Bp u, ∇u F = N . Writing a = |Bp u|, the two-
+dimensional projection Jacobians are J2 πp = (1+a2 )−1/2 and J2 πu = a(1+a2 )−1/2 . Coarea
+first over πu and then over πp gives
+                 ∫                    ∫             ∫ ∫
+                     H1 (Γu ) dω(u) =   J2 πu dH3 =     |Bp u| dH1 (u) dA.
+                      S2                     M               Σ     Cp
+
+There is no division by the potentially vanishing quantity a. Divide by 4π.
+
+Lemma 2.2 (Ellipse comparison). For any two real principal curvatures,
+                               √          √
+                              4 q ≤ PB ≤ π 2q.                                            (2)
+
+The upper equality holds precisely when |κ1 | = |κ2 |; the lower equality holds when
+one principal curvature is zero (or both vanish).
+                                                                                      2
+Proof. For the upper estimate apply Jensen to the concave square root of κ21 cos θ +
+       2                                         √
+κ22 sin θ. For the lower bound divide by q, let t = κ21 /q ∈ [0, 1], and observe that
+∫ 2π √
+            2               2
+ 0     t cos θ + (1 − t) sin θ dθ is concave in t, hence at least the common endpoint value
+4. The equality claims follow from strict concavity away from degeneracies.
+
+Theorem 2.3 (Original sharp Willmore-type bound).
+
+                                                     A
+                                           L2rim ≤     (W − πχ).                          (3)
+                                                     2
+
+The constant 1/2 is sharp. For connected surfaces, equality holds exactly for round
+spheres; in general it holds precisely for finite disjoint unions of equal-radius round
+spheres.
+
+Proof. Theorems above, Cauchy–Schwarz, and Gauss–Bonnet give
+                        ∫          (       ∫    )
+                      A          A                 A
+               Lrim ≤
+                 2
+                          q dA =     4W − 2 K dA = (W − πχ).
+                      8 Σ        8           Σ     2
+
+A sphere of radius r has Lrim = 2πr, A = 4πr2 , W = 4π, χ = 2. Conversely, equality
+forces |κ1 | = |κ2 | pointwise and |B| constant globally. Nonzero opposite principal
+curvatures on any component would give a compact minimal surface in R3 , which is
+impossible by harmonicity of the coordinate functions. Therefore all components are
+totally umbilic round spheres, with common radius from the global constant |B|.
+
+
+                                                      2
+<PARSED TEXT FOR PAGE: 3 / 9>
+Contour generators: mathematical and reconstruction audit                                        6 November 2026
+
+
+
+Corollary 2.4 (Total curvature comparison).
+                     ∫                   ∫
+                   1                   1                                                √
+                       |B| dA ≤ Lrim ≤ √    |B| dA,                             |B| =       q.              (4)
+                   π Σ                2 2 Σ
+
+Both constants are optimal for the pointwise ellipse estimates; the lower equality is
+not asserted for a closed surface.
+
+
+3 Proved anisotropy refinement: all genera
+Lemma 3.1 (Second-order ellipse deficit). For q > 0, let t = (κ21 − κ22 )/q ∈ [−1, 1]. Then
+                                                   (                    )
+                                                         (κ2 − κ22 )2
+                                      PB2 ≤ 2π 2       q− 1                 .                               (5)
+                                                             8q
+
+The same holds by continuity when q = 0.
+Proof. For uniformly distributed θ ∈ [0, 2π], write Z = cos 2θ. Then Z and −Z have the
+same law, EZ 2 = 1/2, and                √      √
+                               PB = 2π q/2 E 1 + tZ.
+For |y| ≤ 1,                                √
+                            (√
+                             √     )2
+                      1+y+ 1−y          1 + 1 − y2          y2
+                                      =              ≤1− .
+                           2                   2             4
+                         √          √               √
+By symmetry and Jensen, E 1 + tZ ≤ E 1 − t2 Z 2 /4 ≤ 1 − t2 /8. Squaring proves the
+assertion.
+                                                                ∫
+Theorem 3.2 (Strengthened Willmore-type inequality). Set D = Σ (κ21 −κ22 )2 /q dA, zero
+at q = 0. Then
+                                  A               A
+                           L2rim ≤ (W − πχ) − D.                                     (6)
+                                  2              64
+The inequality holds in every genus, for nonconvex and disconnected surfaces, and
+is an equality on round spheres (and equal-radius unions of spheres). The correction
+is nonnegative and positive unless |κ1 | = |κ2 | almost everywhere.
+Proof. By Theorem 2.1, Cauchy–Schwarz, and Lemma 3.1,
+                                     ∫            ∫
+                                 A              A         A
+                        L2rim ≤    2
+                                       P 2
+                                         B dA ≤     q dA − D.
+                                16π Σ           8 Σ       64
+            ∫
+The identity Σ q dA = 4(W − πχ) completes the proof.
+
+Remark 3.3 (Earlier preliminary coefficient and its limitation). An earlier candidate
+31/2048 in place of 1/64 is valid but weaker, since 31/2048 < 1/64. The improved coef-
+ficient comes from the exact symmetry argument above. D measures anisotropy of
+curvature magnitudes; it does not measure total non-umbilicity: κ1 = −κ2 ̸= 0 gives
+D’s integrand zero although the point is not umbilic. This matters for reconstruction
+interpretations.
+Corollary 3.4 (No explicit Euler term). Let B ◦ = B − HI. Then
+                                           ∫
+                                  A      A                A
+                           Lrim ≤ W +
+                            2
+                                              |B ◦ |2 dA − D.                      (7)
+                                  4      8 Σ              64
+                                                ∫
+This is algebraically equivalent to (6), since |B ◦ |2 = 2W − 4πχ; it does not remove
+topology in substance, only encodes it geometrically.
+
+                                                         3
+<PARSED TEXT FOR PAGE: 4 / 9>
+Contour generators: mathematical and reconstruction audit                                        6 November 2026
+
+
+
+4 Projected contours and visible silhouettes
+Theorem 4.1 (Projected rim formula, counted with multiplicity). The exact averaged
+orthographic projected rim length is
+                                             ∫ ∫ 2π
+                                      1                      2             2
+                             Lproj =                  κ1 cos θ + κ2 sin θ dθ dA.                             (8)
+                                     4π       Σ   0
+
+Consequently                                                     √
+                             ∫
+                         1                                           A           A
+                                     |H| dA ≤ Lproj ≤ Lrim ≤           (W − πχ) − D.                         (9)
+                         2       Σ                                   2           64
+                                                                                                 ∫
+If κ1 κ2 ≥ 0 everywhere (in particular on convex surfaces), Lproj = 12                               |H| dA. For
+ordinary visible silhouettes, Lvis ≤ Lproj .
+
+Proof. At a regular rim point, the unit rim tangent is T = JBp u/|Bp u|, with J rotation
+by 90◦ in the tangent plane. Therefore ∫ ∫|Πu T | = |⟨Bp u, u⟩|/|Bp u|. Weighting the inci-
+dence coarea identity by |Πu T | gives Σ Cp |⟨Bp u, u⟩| dH1 (u) dA, which is (8). The first
+lower bound follows by the triangle inequality, the middle from |⟨Bu, u⟩| ≤ |Bu|; visible
+curves are a subset of all projected branches, with repetitions omitted. For same-sign
+principal curvatures, the absolute value in (8) can be removed pointwise.
+
+  Visibility flag. On nonconvex surfaces, Lproj includes occluded branches and
+  overlap multiplicity; its exact formula is not an exact formula for the observed
+  visible silhouette. A method using only 2D photographs cannot directly evaluate
+  Lrim , D, or W without estimating 3D geometry.
+
+
+
+5 The false proposed improvement and the correct convex
+  bound
+Proposition 5.1 (Counterexample to the JPG claim for spatial rims). The proposed
+universal inequality L2rim ≤ AW/4 is false, even among smooth closed convex genus-
+zero surfaces.
+
+Proof. First, for the ring torus R = 2, r = 1,
+                                      √
+               A = 8π 2 ,   W = 4π 2 / 3,     κ1 = 1,                  κ2 = cos t/(2 + cos t).
+              ∫ 2π                                              √         √      √
+Because PB ≥ 0 | cos θ| dθ = 4, we have Lrim ≥ A/π = 8π, while AW/4 = 8π 4 / 3 <
+8π. Hence the inequality fails exactly, without numerical approximation. Second,
+take increasingly long cylinders of radius r, length h, smoothly capped by convex
+ends of bounded size. As h/r → ∞, the cylindrical part dominates: Lrim ∼ 2h, A ∼ 2πrh,
+W ∼ πh/(2r), and hence L2rim /(AW) → 4/π 2 > 1/4. These are smooth genus-zero convex
+counterexamples.
+
+Theorem 5.2 (Optimal convex spatial-rim bound). For every smooth closed convex
+surface,
+                                       4
+                               L2rim ≤ 2 AW.                               (10)
+                                       π
+The constant 4/π 2 is optimal in the convex class, approached by elongated smoothly
+capped cylinders.
+
+
+                                                         4
+<PARSED TEXT FOR PAGE: 5 / 9>
+Contour generators: mathematical and reconstruction audit                                   6 November 2026
+
+
+                                            ∫ 2π
+Proof. When κ1 , κ2 have the same sign, PB ≤ 0 (|κ1 cos θ| + |κ2 sin θ|) dθ = 4(|κ1 | + |κ2 |) =
+                         ∫               √
+8|H|. Then Lrim ≤ (2/π) |H| dA ≤ (2/π) AW. The cylinder family in the preceding
+proof achieves the constant asymptotically.
+
+    Thus convex surfaces enjoy the combined sharper estimate
+                                              {A                         }
+                               L2rim ≤ min     2 (W − 2π) − A
+                                                            64 D, π
+                                                                   4
+                                                                    2 AW   .
+
+Neither branch dominates on every convex surface: the first is exact on the sphere,
+while the second is asymptotically exact on long rounded cylinders.
+
+
+6 Convex-hull projected perimeter: a different, stronger
+  established theorem
+For connected smooth closed embedded surfaces, the 2026 theorem of Topping [9]
+states     ∫                   ∫
+                             1
+               (Hout )+ dA ≥      wΣ (e) dω(e), wΣ (e) = max⟨p, e⟩ − min⟨p, e⟩. (11)
+             Σ               2 S2                        p∈Σ         p∈Σ
+
+Here Hout is the signed curvature in Toppingś outward-normal convention, positive
+on a round sphere: if our shape operator is B = −dN with N outward, then Hout = −H.
+Thus |Hout | = |H| and the Willmore energy is unchanged. The theorem is a nontriv-
+ial external input; we do not reprove it here. Cauchy’s planar perimeter formula,
+averaged over view directions, yields
+                                          ∫
+                                        1
+                                Lhull =      wΣ (e) dω(e).
+                                        4 S2
+                    ∫         ∫       √
+Therefore 2Lhull ≤ (Hout )+ ≤ |H| ≤ AW, and
+
+                                                            AW
+                                               L2hull ≤        .                                      (12)
+                                                             4
+
+The sphere attains equality. Miura’s November 2026 preprint [10] extends sharp
+mean-width statements to certain immersed surfaces; the connected embedded for-
+mulation above is independently verified directly
+                                             ∫     against Topping’s Theorem 1.4.
+For convex Σ, the equality Lhull = Lproj = 2 H dA is the classical Minkowski mean-
+                                           1
+
+curvature formula. None of this proves L2rim ≤ AW/4. Convex-hull perimeter and
+spatial rim length cannot be interchanged.
+
+
+7 Numerical tests and genus questions
+The curvature-ellipse formula was evaluated by high-resolution deterministic quadra-
+ture for revolution tori. The columns labelled bounds are square roots of the right-
+hand side, in the same length units as Lrim .
+
+        Surface (R, r)                 Lrim    original (3)        refined (6)   exact PB -CS bound
+        Ring torus (2,
+                    √ 1)       28.233659        29.997111          28.804162            28.443808
+        Ring torus ( 2, 1)     21.609934        23.474008          22.660458            22.469854
+        Ring torus (3, 0.5)    38.462964        42.169127          39.599351            38.466860
+
+
+
+
+                                                      5
+<PARSED TEXT FOR PAGE: 6 / 9>
+Contour generators: mathematical and reconstruction audit                                    6 November 2026
+
+
+                             √ ∫
+The “exact PB -CS bound” is A PB2 dA/(16π 2 ), itself a tighter geometric estimate
+than the anisotropy simplification, but it requires the entire curvature-ellipse field.
+These numerical checks are independent of, and weaker than, the analytical proofs.
+   For connected embedded genus-g surfaces consider the proposed optimization
+problem
+                                                 4L2rim
+                                c(g) =    sup           .                         (13)
+                                       genus(Σ)=g AW
+
+The established examples and original bound yield
+                              16
+                                 ≤ c(0) ≤ 2,         1.7717624 . . . ≤ c(1) ≤ 2.
+                              π2
+The genus-zero lower bound comes from elongated rounded cylinders; genus-one
+from the (2, 1) ring torus. These are bounds, not evaluations of c(0) and c(1). A proof of
+optimal c(g), its extremizers, or a nontrivial stability estimate would be a substantially
+more ambitious mathematical result. We do not assert that this optimization problem
+is novel or unstudied without exhaustive bibliographic verification.
+
+
+8 Comparison with standard Willmore theory and 3D re-
+  construction
+8.1 Which statements compete, and which do not?
+
+Result / method               Input                          Reconstruction interpretation
+
+Classical W ≥ 4π [6]          Willmore energy                Universal bending-energy baseline; equality
+                                                             on a round sphere.
+Marques–Neves torus [7]       Genus one; W ≥ 2π 2            Strong topology-sensitive result, not an
+                                                             image-fitting algorithm.
+Discrete Willmore flow        Mesh curvature and gra-        Directly supports smoothing, restoration, and
+[8]                           dients                         hole filling.
+Differentiable recon-         Views, images, appear-         Directly optimizes geometry against observa-
+struction [12, 13]            ance, geometry                 tions.
+Original rim, (3)             Full 3D rim; A, W, χ           Theoretical consistency check; rim is latent
+                                                             in opaque photographs.
+Refined rim, (6)              Adds D                         Tighter certificate, but needs reconstructed
+                                                             principal curvatures.
+Topping hull, (12)            Projected hulls; A, W          Closely linked to image convex-hull perime-
+                                                             ter; sharp and already known.
+
+
+For ordinary multi-view silhouettes, reconstruction is nonunique: hidden concavities
+cannot in general be recovered from visual-hull methods, even with many views [3, 4].
+Modern multi-view surface methods combine photometric/differentiable losses and
+representation-specific constraints [12, 13, 11]. There is no established reconstruc-
+tion benchmark in the reviewed literature showing that enforcing (6) improves geo-
+metric accuracy, Chamfer distance, silhouette IoU, inference speed, or robustness.
+Such claims require experiments.
+
+
+
+
+                                                       6
+<PARSED TEXT FOR PAGE: 7 / 9>
+Contour generators: mathematical and reconstruction audit                 6 November 2026
+
+
+
+8.2 How to turn the inequality into a testable reconstruction con-
+    straint
+For a fully sampled directional average s = Lvis , the chain s ≤ Lrim implies the neces-
+sary condition
+                                           2s2     D
+                                 W ≥ πχ +      + .                                  (14)
+                                            A      32
+This can flag inconsistent candidate values, and can inspire a soft loss based on a
+positive-part constraint residual. But it is not a sufficient condition for a correct
+reconstruction and is usually looser than using the full 3D rim. For mean convex-hull
+perimeters measured directly from silhouettes, Topping’s established (12) instead
+gives
+                         4L2hull
+                    W≥           (connected embedded surfaces).                  (15)
+                           A
+The different measurements prevent an unconditional numerical ranking of (14) and
+(15). A finite set of camera viewpoints does not automatically equal the uniform
+spherical average; any stochastic approximation needs angular-sampling error anal-
+ysis. In addition, both constraints require an area estimate, and (14) further needs
+a topology choice and reliable curvature estimation.
+
+8.3 Evidence-based assessment
+• Mathematical correctness: high. The incidence-coarea identity, original sharp
+  theorem, anisotropy correction, projected formula, and convex special case have
+  analytic proofs above.
+• Theoretical interest: moderate. The correction improves the ellipse-perimeter
+  estimate. Publication priority and substantial conceptual novelty remain unestab-
+  lished.
+• Direct 3D reconstruction value: currently low/unproven. The full rim is la-
+  tent, the new deficit requires curvature data, and practical methods already use
+  local curvature/surface regularization and image-fit constraints.
+• Potential utility: real but conditional. Candidate-shape validation, noise-aware
+  regularization experiments, and calibrated silhouettes for convex or nearly convex
+  objects are plausible settings.
+• Best research direction: empirical and geometric. Compare a baseline multi-
+  view reconstruction with and without a well-defined contour-consistency penalty;
+  include convex vs nonconvex families, hidden cavities, view subsampling, curva-
+  ture noise, and topology mistakes. Separately investigate genus-specific optimal
+  c(g) and stability.
+
+  Novelty and priority flag. The curvature-ellipse identity and Willmore-type
+  inequality were supplied in the two-page note attributed to İmamverdi Bədəlov.
+  The six-page mathematical audit reconstructs proofs and adds projected/equality
+  results. The anisotropy refinement and computational comparisons in this re-
+  port are additional independently developed deductions. Mathematical correct-
+  ness does not establish that any claim is bibliographically new, and attribu-
+  tion/publication rights must be resolved by human authors. Topping’s 2026
+  mean-width theorem and classical Minkowski identities must be attributed to
+  their authors.
+
+
+                                                      7
+<PARSED TEXT FOR PAGE: 8 / 9>
+Contour generators: mathematical and reconstruction audit                                 6 November 2026
+
+
+
+9 Full checklist of established results, rejected claims,
+  and open items
+
+ Status                  Claim                                                    Basis
+
+ Proved                  Exact coarea/curvature-ellipse identity; Sard regular-   Theorem 2.1
+                         ity
+                          √             √
+ Proved                  4 q ≤ PB ≤ π 2q                                          (2)
+ Proved                  Original sharp rim bound; sphere and equal-sphere        Theorem 2.3
+                         equality cases
+                                      ∫
+ Proved                  Two-sided |B| comparison                                 (4)
+ Proved                  Improved −AD/64 correction                               Theorem 3.2
+ Proved                  Prior coefficient 31/2048 is weaker                      Coefficients
+ Equivalent              Trace-free expression with no explicit χ                 (7)
+ Proved                  Projected formula; visible ≤ projected ≤ spatial         (8)–(9)
+ Proved                  Convex projected formula and optimal spatial             Theorem 5.2
+                         4AW /π 2 bound
+ Disproved               Universal rim L2rim ≤ AW /4, even smooth convex          Prop. 5.1
+                         genus zero
+ Known result            Hull L2hull ≤ AW /4, from mean-width theorem             Topping 2026
+                                                   √
+ Numerically             Three ring tori: (2, 1), ( 2, 1), (3, 0.5)               Section 7
+ checked
+ Bounds only             16/π 2 ≤ c(0) ≤ 2; 1.7717624 ≤ c(1) ≤ 2                  (13)
+ Open here               Sharp c(g), stability, genus-only improvement            Research question
+ Unproven                Better 3D reconstruction using the new constraint        Benchmark needed
+ Unverified              Originality and scholarly priority                       Literature review
+
+
+
+
+References and source provenance
+
+References
+ [1] İ. Bədəlov, 3D Kontur Generatorunun Orta Uzunluğu üçün Willmore-Tipli Üst Sərhədin
+     İsbatı, supplied two-page manuscript; undated in the original PDF.
+
+ [2] Directional Averages of Contour Generators on Closed Surfaces: A Sharp Willmore-
+     Type Bound and a Projected-Length Identity, supplied six-page mathematical audit edi-
+     tion, 4 November 2026.
+
+ [3] A. Laurentini, The visual hull concept for silhouette-based image understanding, IEEE
+     TPAMI 16 (1994), 150–162. https://doi.org/10.1109/34.273735.
+
+ [4] A. Laurentini, How many 2D silhouettes does it take to reconstruct a 3D object?, Com-
+     puter Vision and Image Understanding 67 (1997), 81–87. https://doi.org/10.1006/cviu.
+     1996.0508.
+
+ [5] M. Glisse and S. Lazard, An upper bound on the average size of silhouettes,
+     Discrete & Computational Geometry 40 (2008), 241–257. https://doi.org/10.1007/
+     s00454-008-9089-3.
+
+ [6] B.-Y. Chen, On an inequality of T. J. Willmore, Proc. AMS 26 (1970), 473–479. https:
+     //doi.org/10.1090/S0002-9939-1970-0266113-3.
+
+ [7] F. C. Marques and A. Neves, Min-max theory and the Willmore conjecture, Ann. Math.
+     179 (2014), 683–782. https://doi.org/10.4007/annals.2014.179.2.6.
+
+
+
+
+                                                      8
+<PARSED TEXT FOR PAGE: 9 / 9>
+Contour generators: mathematical and reconstruction audit                    6 November 2026
+
+
+
+ [8] A. I. Bobenko and P. Schröder, Discrete Willmore flow, Eurographics Symposium on
+     Geometry Processing (2005). https://doi.org/10.2312/SGP/SGP05/101-110.
+
+ [9] P. M. Topping, Sharp diameter estimates via integral geometry, arXiv:2610.34367v1,
+     25 October 2026, Theorem 1.4. https://arxiv.org/html/2610.34367.
+
+[10] T. Miura, Topping’s diameter conjecture for immersed surfaces, arXiv:2611.01589, 1
+     November 2026. https://arxiv.org/abs/2611.01589.
+
+[11] Z. Han et al., DRWR: A differentiable renderer without rendering for unsupervised 3D
+     structure learning from silhouette images, ICML 2020. https://proceedings.mlr.press/
+     v119/han20b.html.
+
+[12] Z. Huang, Z. Liang and K. Jia, Sur2 f: A hybrid representation for high-quality and ef-
+     ficient surface reconstruction from multi-view images, ECCV 2024. https://www.ecva.
+     net/papers/eccv_2024/papers_ECCV/html/7696_ECCV_2024_paper.php.
+
+[13] J. Held et al., MeshSplatting:     Differentiable rendering with opaque meshes,
+     CVPR 2026. https://openaccess.thecvf.com/content/CVPR2026/html/Held_MeshSplatting_
+     Differentiable_Rendering_with_Opaque_Meshes_CVPR_2026_paper.html.
+
+
+
+
+                                                      9
