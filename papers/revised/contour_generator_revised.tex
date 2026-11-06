@@ -1,0 +1,276 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=24mm,headheight=14pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{Noto Serif}
+\setsansfont{Noto Sans}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{booktabs,tabularx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black,
+ pdfauthor={İmamverdi Bədəlov (original note); independently expanded and audited exposition},
+ pdftitle={Directional Averages of Contour Generators on Closed Surfaces}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Sph}{\mathbb S^2}
+\newcommand{\HH}{\mathcal H}
+\newcommand{\A}{\mathcal A}
+\newcommand{\W}{\mathcal W}
+\newcommand{\Lc}{\mathcal L}
+\newcommand{\Lp}{\mathcal L_{\mathrm{pr}}}
+\newcommand{\Bop}{\mathsf B}
+\newcommand{\ud}{\,d\omega}
+\newcommand{\dd}{\,dA}
+\pagestyle{fancy}\fancyhf{}\lhead{\footnotesize\sffamily DIRECTIONAL CONTOUR AVERAGES}\rhead{\footnotesize\sffamily Corrected mathematical exposition}\cfoot{\footnotesize\thepage}
+\emergencystretch=3em
+\setlength{\parindent}{0pt}\setlength{\parskip}{3pt}
+\title{\vspace{-12mm}\bfseries\Large Directional Averages of Contour Generators on Closed Surfaces:\\[4pt]
+A Sharp Willmore-Type Bound and a Projected-Length Identity}
+\author{\large İmamverdi Bədəlov\\[-2pt]
+\small\itshape Original two-page note; proof reconstructed and extended in this audit edition}
+\date{\small Mathematical verification edition --- 4 November 2026}
+\begin{document}
+\maketitle
+\vspace{-8mm}
+\begin{center}\rule{0.96\linewidth}{0.5pt}\end{center}
+\begin{abstract}\noindent
+For a smooth compact boundaryless oriented surface $\Sigma\subset\mathbb R^3$ and a unit viewing direction $u$, let $\Gamma_u=\{p\in\Sigma:\langle N(p),u\rangle=0\}$ be its orthographic contour generator. We give a complete coarea argument for an exact formula for the direction-averaged spatial length $\Lc(\Sigma)$ in terms of the image of the unit tangent circle under the shape operator. This implies the sharp estimate
+$\Lc(\Sigma)^2\le \frac{\A(\Sigma)}2(\W(\Sigma)-\pi\chi(\Sigma))$, where $\W=\int H^2\,dA$ and $H=(\kappa_1+\kappa_2)/2$. Equality on a connected surface holds exactly for round spheres. We also derive an analogous exact formula for projected contour length counted with multiplicity, and give comparisons and scope qualifications. The original bound is from the supplied note; the projected-length statements and equality analysis are explicitly identified as additions made during the mathematical audit. No claim of bibliographic novelty is made.
+\end{abstract}
+\noindent\textbf{Keywords:} contour generator; coarea formula; Gauss map; principal curvature; Willmore energy; silhouette length.\\[-2pt]
+\textbf{MSC (indicative):} 53A05, 49Q15, 53C42.
+
+\section{Introduction and precise setting}
+Let $\Sigma\subset\mathbb R^3$ be a nonempty, compact, $C^\infty$, embedded, orientable two-dimensional surface without boundary. We do \emph{not} assume convexity or connectedness. Fix a smooth unit normal field $N:\Sigma\to\Sph$ and write
+\[
+\Bop_p=-dN_p:T_p\Sigma\longrightarrow T_p\Sigma,
+\qquad H=\frac{\kappa_1+\kappa_2}{2},\quad K=\kappa_1\kappa_2,
+\]
+where $\kappa_1,\kappa_2$ are the principal curvatures (eigenvalues of $\Bop$). Put
+\[
+\A=\int_\Sigma dA,\qquad
+\W=\int_\Sigma H^2\,dA,\qquad
+|\Bop|=\sqrt{\kappa_1^2+\kappa_2^2}.
+\]
+For a viewing direction $u\in\Sph$ define the \emph{spatial contour generator}, also called the rim, by
+\[
+\Gamma_u=\{p\in\Sigma:\langle N(p),u\rangle=0\}.
+\]
+For almost every $u$, this is a compact smooth one-dimensional submanifold of $\Sigma$ (Lemma~\ref{lem:generic}). For such directions set $\ell(u)=\HH^1(\Gamma_u)$, and define its mean length using ordinary surface measure $d\omega$ on $\Sph$:
+\begin{equation}\label{eq:Ldef}
+\Lc(\Sigma)=\frac1{4\pi}\int_{\Sph}\ell(u)\,d\omega(u).
+\end{equation}
+Values assigned to $\ell(u)$ on the exceptional null set do not change this integral.
+
+The quantity in \eqref{eq:Ldef} includes \emph{all} rim components, including invisible parts. It is not, by definition, the length of the visible silhouette in an image. The contour-generator/apparent-contour distinction is standard in geometric vision; see, for example, \cite{PlantingaVegter}. The original supplied note proposed a sharp inequality for \eqref{eq:Ldef} but abbreviated the crucial coarea step. Below that step is fully reconstructed.
+
+\section{Generic directions and the exact spatial-length formula}
+\begin{lemma}[Generic regularity]\label{lem:generic}
+The set of $u\in\Sph$ for which $0$ is not a regular value of $p\mapsto\langle N(p),u\rangle$ has spherical measure zero. For every other $u$, $\Gamma_u$ is a compact smooth one-dimensional submanifold (possibly empty).
+\end{lemma}
+\begin{proof}
+Consider $F:\Sigma\times\Sph\to\mathbb R$, $F(p,u)=\langle N(p),u\rangle$, and set $M=F^{-1}(0)$. At $(p,u)\in M$, the vector $N(p)$ belongs to $T_u\Sph$; hence
+\[
+ d_uF(p,u)[N(p)]=\langle N(p),N(p)\rangle=1.
+\]
+Thus $0$ is a regular value of $F$, and $M$ is a compact smooth three-manifold. Consider the smooth projection $\pi_u:M\to\Sph$, $(p,u)\mapsto u$. Sard's theorem shows that the critical values of $\pi_u$ form a set of spherical measure zero. For any regular value $u$, the fiber $\pi_u^{-1}(u)$ is a smooth one-dimensional submanifold and is naturally identified with $\Gamma_u$. Equivalently, the differential of $p\mapsto F(p,u)$ does not vanish along the zero set.\qedhere
+\end{proof}
+
+At $p\in\Sigma$, let $C_p=\{u\in\Sph:\langle N(p),u\rangle=0\}$, the unit circle in $T_p\Sigma$. The \emph{curvature-ellipse perimeter density} is
+\begin{equation}\label{eq:Pdef}
+P_\Bop(p)=\int_{C_p}|\Bop_pu|\,d\HH^1(u)
+=\int_0^{2\pi}\sqrt{\kappa_1(p)^2\cos^2\theta+
+\kappa_2(p)^2\sin^2\theta}\,d\theta.
+\end{equation}
+Equation \eqref{eq:Pdef} is the length of the \emph{parametrized} image of $C_p$ under $\Bop_p$. It remains the definition when an axis vanishes: a collapsed ellipse is counted with its limiting parametrized perimeter.
+
+\begin{theorem}[Exact average spatial length]\label{thm:spatial}
+For every $\Sigma$ as above,
+\begin{equation}\label{eq:spatial}
+\boxed{\displaystyle \Lc(\Sigma)=\frac{1}{4\pi}\int_\Sigma P_\Bop(p)\,dA(p).}
+\end{equation}
+In particular the spherical average is finite.
+\end{theorem}
+\begin{proof}
+Equip $\Sigma\times\Sph$ with the product Riemannian metric, and keep $M=F^{-1}(0)$. At $(p,u)\in M$ we have $u\in T_p\Sigma$, and the two partial gradients of $F$ are
+\[
+ \nabla_pF=-\Bop_pu,\qquad \nabla_uF=N(p),\qquad |\nabla_uF|=1.
+\]
+Write $a=|\Bop_pu|$. Since $M$ is a hypersurface of the four-manifold $\Sigma\times\Sph$, the two-dimensional Jacobians of the restrictions of the coordinate projections $\pi_p:M\to\Sigma$ and $\pi_u:M\to\Sph$ are
+\begin{equation}\label{eq:jacs}
+J_2\pi_p=\frac{1}{\sqrt{1+a^2}},\qquad
+J_2\pi_u=\frac{a}{\sqrt{1+a^2}}.
+\end{equation}
+Indeed, the unit normal of $M$ is proportional to $(\nabla_pF,\nabla_uF)$; the $2$-Jacobian of projection to either two-dimensional factor equals the norm of the normal's projection to the \emph{other} factor. This also proves \eqref{eq:jacs} when $a=0$.
+
+Apply the coarea formula to $\pi_u$ and then to $\pi_p$ (see \cite{Federer}). Using \eqref{eq:jacs}, with no division by a vanishing quantity,
+\begin{align*}
+\int_{\Sph}\HH^1(\Gamma_u)\,d\omega(u)
+&=\int_M J_2\pi_u\,d\HH^3 \\
+&=\int_M \frac{J_2\pi_u}{J_2\pi_p}\,J_2\pi_p\,d\HH^3 \\
+&=\int_\Sigma\left(\int_{\pi_p^{-1}(p)}|\Bop_pu|\,d\HH^1(u)\right)dA(p)\\
+&=\int_\Sigma P_\Bop(p)\,dA(p).
+\end{align*}
+Here $J_2\pi_p>0$ everywhere, and the fibers $\pi_p^{-1}(p)$ are precisely $C_p$. Divide by $4\pi$. Compactness and the smoothness of $\Bop$ give finiteness.
+\end{proof}
+
+\section{Sharp Willmore-type inequality and equality cases}
+\begin{lemma}[Sharp pointwise ellipse estimates]\label{lem:perim}
+For any real numbers $\kappa_1,\kappa_2$,
+\begin{equation}\label{eq:ellbounds}
+4\sqrt{\kappa_1^2+\kappa_2^2}\ \leq\
+\int_0^{2\pi}\sqrt{\kappa_1^2\cos^2\theta+\kappa_2^2\sin^2\theta}\,d\theta
+\ \leq\ \pi\sqrt{2(\kappa_1^2+\kappa_2^2)}.
+\end{equation}
+The upper equality holds if and only if $\kappa_1^2=\kappa_2^2$ (including both zero). If $\kappa_1^2+\kappa_2^2>0$, lower equality holds precisely when one of $\kappa_1,\kappa_2$ is zero.
+\end{lemma}
+\begin{proof}
+For the upper estimate, Jensen's inequality for the strictly concave function $t\mapsto\sqrt t$, together with the averages of $\cos^2\theta$ and $\sin^2\theta$, gives
+\[
+\frac1{2\pi}\int_0^{2\pi}\sqrt{\kappa_1^2\cos^2\theta+\kappa_2^2\sin^2\theta}\,d\theta
+\leq\sqrt{\frac{\kappa_1^2+\kappa_2^2}{2}}.
+\]
+Equality is equivalent to constancy of the expression under the square root for almost every $\theta$, hence to $\kappa_1^2=\kappa_2^2$.
+
+For the lower estimate let $q=\kappa_1^2+\kappa_2^2>0$ and $t=\kappa_1^2/q$. The function
+\[
+G(t)=\int_0^{2\pi}\sqrt{t\cos^2\theta+(1-t)\sin^2\theta}\,d\theta
+\]
+is concave on $[0,1]$, so $G(t)\geq (1-t)G(0)+tG(1)=4$. Strict concavity in the interior gives the asserted equality condition. The case $q=0$ is immediate.
+\end{proof}
+
+\begin{theorem}[Sharp Willmore-type upper bound]\label{thm:main}
+Let $\chi(\Sigma)$ denote the Euler characteristic. Then
+\begin{equation}\label{eq:main}
+\boxed{\displaystyle \Lc(\Sigma)^2\leq
+\frac{\A(\Sigma)}{2}\bigl(\W(\Sigma)-\pi\chi(\Sigma)\bigr).}
+\end{equation}
+The coefficient $1/2$ is optimal. If $\Sigma$ is connected, equality holds if and only if $\Sigma$ is a round sphere. In general, equality holds exactly for finite disjoint unions of round spheres of a common radius.
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:spatial} and the upper bound of Lemma~\ref{lem:perim} yield
+\[
+\Lc(\Sigma)\leq\frac1{2\sqrt2}\int_\Sigma|\Bop|\,dA
+\leq\frac1{2\sqrt2}\sqrt{\A\int_\Sigma|\Bop|^2\,dA}.
+\]
+The identity $|\Bop|^2=\kappa_1^2+\kappa_2^2=4H^2-2K$ and Gauss--Bonnet imply
+\begin{equation}\label{eq:BWillmore}
+\int_\Sigma|\Bop|^2\,dA=4\W-2\int_\Sigma K\,dA
+=4(\W-\pi\chi(\Sigma)).
+\end{equation}
+Squaring proves \eqref{eq:main}.
+
+A round sphere of radius $r$ has $\Gamma_u$ a great circle of length $2\pi r$ for every $u$; also $\A=4\pi r^2$, $\W=4\pi$ and $\chi=2$. Thus equality holds and the constant is optimal.
+
+Conversely, suppose equality holds. Equality in the Cauchy--Schwarz step forces $|\Bop|\equiv c$ on all of $\Sigma$; equality in the integrated Jensen estimate forces $\kappa_1^2=\kappa_2^2$ at every point (the deficit is continuous and nonnegative). We must have $c>0$: otherwise $dN=0$ everywhere, so each connected component is contained in a plane, impossible for a compact boundaryless immersed surface. Consequently on each connected component $K\in\{c^2/2,-c^2/2\}$, and continuity forces a constant sign.
+
+If $K<0$ on a component, $\kappa_1=-\kappa_2$ there and $H\equiv0$. This would be a compact boundaryless minimal surface in $\mathbb R^3$, which is impossible: each coordinate function of the immersion would be harmonic and hence constant. Therefore $K>0$, $\kappa_1=\kappa_2$ on each component, and the component is totally umbilic with constant nonzero principal curvature. It is a round sphere. Since $|\Bop|=c$ globally, all radii coincide. Conversely, such a union attains equality by direct substitution.\qedhere
+\end{proof}
+
+\begin{corollary}[Comparison with total absolute curvature of the shape operator]\label{cor:compare}
+For every $\Sigma$ under consideration,
+\begin{equation}\label{eq:comparison}
+\boxed{\displaystyle
+\frac1\pi\int_\Sigma|\Bop|\,dA
+\leq\Lc(\Sigma)\leq
+\frac1{2\sqrt2}\int_\Sigma|\Bop|\,dA.}
+\end{equation}
+Both numerical constants are optimal at the \emph{pointwise} ellipse level. No claim of global equality in the lower estimate is made.
+\end{corollary}
+\begin{proof}
+Integrate both sides of \eqref{eq:ellbounds} and apply \eqref{eq:spatial}.
+\end{proof}
+
+\section{Projected contour length and visible silhouettes}
+For a regular direction $u$ write $\Pi_u:\mathbb R^3\to u^\perp$ for orthogonal projection. Define the length of the \emph{parametrized projected contour}, counting multiplicity, by
+\begin{equation}\label{eq:projecteddef}
+\ell_{\rm pr}(u)=\int_{\Gamma_u}|\Pi_uT_u(p)|\,d\HH^1(p),
+\qquad
+\Lp(\Sigma)=\frac1{4\pi}\int_{\Sph}\ell_{\rm pr}(u)\,d\omega(u),
+\end{equation}
+where $T_u$ is any local unit tangent to $\Gamma_u$. This is independent of its sign and accounts for multiple traced branches even when the planar images overlap.
+
+\begin{theorem}[Exact averaged projected-length formula; audit extension]\label{thm:projected}
+Under the same hypotheses,
+\begin{equation}\label{eq:projected}
+\boxed{\displaystyle
+\Lp(\Sigma)=\frac1{4\pi}\int_\Sigma
+\int_0^{2\pi}\left|\kappa_1(p)\cos^2\theta+
+\kappa_2(p)\sin^2\theta\right|\,d\theta\,dA(p).}
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:projectedbounds}
+\frac12\int_\Sigma|H|\,dA\leq\Lp(\Sigma)
+\leq\Lc(\Sigma)\leq
+\sqrt{\frac\A2(\W-\pi\chi(\Sigma))}.
+\end{equation}
+If $\kappa_1\kappa_2\geq0$ everywhere (in particular for a convex ovaloid), then
+\begin{equation}\label{eq:convex}
+\Lp(\Sigma)=\frac12\int_\Sigma|H|\,dA.
+\end{equation}
+\end{theorem}
+\begin{proof}
+At a regular rim point $(p,u)$, the tangent plane contains $u$ and the gradient of $p\mapsto F(p,u)$ is $-\Bop_pu\neq0$. If $J$ denotes a rotation by a right angle in the oriented tangent plane, a unit tangent to $\Gamma_u$ is $T=J\Bop_pu/|\Bop_pu|$, up to sign. The tangent-space vectors $u$ and $Ju$ form an orthonormal basis; therefore
+\[
+|\Pi_uT|=|\langle T,Ju\rangle|
+=\frac{|\langle\Bop_pu,u\rangle|}{|\Bop_pu|}.
+\]
+Apply the coarea formula to $\pi_u:M\to\Sph$ with weight $|\Pi_uT|$, then to $\pi_p:M\to\Sigma$, exactly as in the proof of Theorem~\ref{thm:spatial}. Where $\Bop_pu=0$, the $\pi_u$-Jacobian vanishes; the product appearing after coarea extends as $|\langle\Bop_pu,u\rangle|=0$. Thus
+\[
+\int_{\Sph}\ell_{\rm pr}(u)\,d\omega(u)
+=\int_\Sigma\int_{C_p}|\langle\Bop_pu,u\rangle|\,d\HH^1(u)\,dA(p).
+\]
+In a principal frame $\langle\Bop_pu,u\rangle=\kappa_1\cos^2\theta+\kappa_2\sin^2\theta$, proving \eqref{eq:projected}. The triangle inequality gives
+\[
+\int_0^{2\pi}|\kappa_1\cos^2\theta+\kappa_2\sin^2\theta|\,d\theta
+\geq\left|\int_0^{2\pi}(\kappa_1\cos^2\theta+\kappa_2\sin^2\theta)\,d\theta\right|
+=2\pi|H|.
+\]
+Also $|\langle\Bop_pu,u\rangle|\leq|\Bop_pu|$; integrating yields $\Lp\leq\Lc$. The last inequality is Theorem~\ref{thm:main}. When both principal curvatures have the same sign, the triangle inequality is an equality pointwise, proving \eqref{eq:convex}.
+\end{proof}
+
+\begin{remark}[What is---and is not---a visible contour]\label{rem:visible}
+A visible silhouette from an opaque surface consists of some of the projected rim points; its image-set length is no greater than the length of all parametrized projected rim branches. Thus, whenever visibility is defined in the usual orthographic setting and $\ell_{\rm vis}(u)$ denotes the one-dimensional Hausdorff length of the visible silhouette,
+$\ell_{\rm vis}(u)\leq\ell_{\rm pr}(u)\leq\ell(u)$ for almost every $u$.
+Theorem~\ref{thm:main} consequently bounds \emph{average visible silhouette length from above}, but \eqref{eq:projected} is not an exact formula for that visible length when occlusion occurs. For a round sphere all three quantities agree for every view.
+\end{remark}
+
+\section{Checks, interpretation, and scope}
+\subsection*{Sphere check}
+For a round sphere of radius $r$, $|\kappa_1|=|\kappa_2|=1/r$, so $P_\Bop=2\pi/r$. Theorem~\ref{thm:spatial} gives $\Lc=2\pi r$. Its projected contours are great circles contained in the projection plane, so $\Lp=2\pi r$ as well. Theorem~\ref{thm:main} is an equality.
+
+\subsection*{Torus check}
+For a ring torus with major radius $R>r>0$ and tube radius $r$, the area and Willmore energy are
+\[
+\A=4\pi^2Rr,\qquad \chi=0,\qquad
+\W=\frac{\pi^2R^2}{r\sqrt{R^2-r^2}}.
+\]
+Up to a simultaneous change of signs, the principal curvatures at meridional angle $t$ are $1/r$ and $\cos t/(R+r\cos t)$. Numerical integrations of \eqref{eq:spatial} and \eqref{eq:projected} give the figures below, which were also independently checked by direct parametrization of the rim curves.
+\begin{center}\small
+\begin{tabular}{@{}lrrr@{}}\toprule
+$(R,r)$ & $\Lc$ & $\Lp$ & bound for $\Lc$\\\midrule
+$(2,1)$ & $28.233659$ & $23.19516$ & $29.997111$\\
+$(\sqrt2,1)$ & $21.609934$ & $18.17206$ & $23.474008$\\
+$(3,0.5)$ & $38.462964$ & $30.57402$ & $42.169127$\\\bottomrule
+\end{tabular}
+\end{center}
+These are numerical consistency checks, not a proof of the general theorem. A reproducible standalone test script accompanies this document.
+
+\subsection*{Interpretation and limitations}
+The upper bound is dimensionally consistent: $\Lc$ has units of length; $\A$ has units of length squared; and $\W$ and $\chi$ are dimensionless. It controls the \emph{average}, not the maximum over viewing directions. It does not impose a bound in terms of area and genus alone; the curvature energy is essential. The projected identity measures all projected rim branches with multiplicity, whereas an image's outer silhouette can exclude occluded branches. Finally, since the proof uses coarea, a pointwise ellipse estimate, Cauchy--Schwarz and Gauss--Bonnet, novelty should not be inferred from validity or sharpness alone.
+
+\section*{Attribution and bibliographic-status statement}
+The central definition, curvature-ellipse representation, and Willmore-type inequality were present in the two-page document supplied under the name \emph{İmamverdi Bədəlov}. This edition supplies a corrected proof, a complete equality analysis, the two-sided comparison, and the projected-length extension. These additions were constructed during an independent AI-assisted mathematical review; permission, final authorship, and claims of priority must be resolved by a human author before scholarly submission. A targeted literature check located background sources on contour generators and standard geometric techniques but did not establish whether the stated averaged identities previously appeared elsewhere.
+
+\begin{thebibliography}{9}\setlength{\itemsep}{2pt}
+\bibitem{Carmo} M. P. do Carmo, \emph{Differential Geometry of Curves and Surfaces}, Prentice--Hall, 1976.
+\bibitem{Federer} H. Federer, \emph{Geometric Measure Theory}, Springer, 1969.
+\bibitem{PlantingaVegter} S. Plantinga and G. Vegter, ``Computing contour generators of evolving implicit surfaces,'' \emph{ACM Transactions on Graphics} \textbf{25} (2006), no. 4, 1243--1280.
+\end{thebibliography}
+\end{document}

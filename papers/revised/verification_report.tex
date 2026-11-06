@@ -1,0 +1,95 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=26mm,headheight=14pt]{geometry}
+\usepackage{fontspec}\setmainfont{Noto Serif}\setsansfont{Noto Sans}
+\usepackage{amsmath,amssymb,booktabs,tabularx,enumitem,xcolor,microtype,fancyhdr,hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,pdftitle={Independent mathematical audit of the 3D contour-generator bound}}
+\definecolor{darkblue}{HTML}{1B5271}
+\definecolor{darkred}{HTML}{A33636}
+\definecolor{darkgreen}{HTML}{267446}
+\newcommand{\pass}{\textcolor{darkgreen}{\textsf{VERIFIED}}}
+\newcommand{\flag}{\textcolor{darkred}{\textsf{FLAG}}}
+\newcommand{\qual}{\textcolor{darkblue}{\textsf{QUALIFIED}}}
+\pagestyle{fancy}\fancyhf{}\lhead{\small\sffamily INDEPENDENT MATHEMATICAL AUDIT}\rhead{\small\sffamily 4 NOVEMBER 2026}\cfoot{\thepage}
+\emergencystretch=3em
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\begin{document}
+{\sffamily\Large\bfseries Referee Verification and Editorial Flags}\\[5pt]
+{\large On the 3D contour-generator Willmore-type estimate}\\[3pt]
+\emph{Source note attributed to İmamverdi Bədəlov. This audit is not a certification of novelty or a machine-checked proof.}
+\smallskip\hrule\bigskip
+\section*{Decision}
+\textbf{Main mathematical statement:} \pass.\\
+\textbf{Two-page proof as originally submitted:} \flag{} --- incomplete; repaired in the accompanying paper.\\
+\textbf{Sharpness and equality:} \pass{} for the stated smooth, compact, boundaryless setting.\\
+\textbf{Projected-length identity:} \pass{} as a mathematical derivation; original attribution and novelty unverified.\\
+\textbf{Novelty / journal submission:} \qual{} --- priority research and human authorship review needed.
+
+The audited upper bound is
+\[
+\boxed{\quad\mathcal L(\Sigma)^2\leq\frac{A(\Sigma)}2\bigl(\mathcal W(\Sigma)-\pi\chi(\Sigma)\bigr),\quad
+\mathcal W=\int_\Sigma H^2\,dA,\quad H=\frac{\kappa_1+\kappa_2}{2}.\quad}
+\]
+The coefficient is exactly attained by a round sphere and thus is optimal. Its proof is valid after replacing the source note's summary of coarea and genericity by an incidence-manifold argument.
+
+\section*{Proof ledger: what was actually checked}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\linewidth}{@{}p{3.3cm}p{2cm}X@{}}\toprule
+Claim & Status & Reason / repair \\\midrule
+Almost-everywhere regularity & \pass & Define $M=\{(p,u):N(p)\cdot u=0\}$, a smooth compact 3-manifold; apply Sard to $M\to\mathbb S^2$.\\
+Exact average spatial rim formula & \pass & Apply coarea to both incidence projections and compute their $2$-Jacobians explicitly.\\
+Ellipse perimeter estimate & \pass & Jensen yields $P\leq\pi\sqrt{2(\kappa_1^2+\kappa_2^2)}$ with the required coefficient.\\
+Energy identity & \pass & Use $\kappa_1^2+\kappa_2^2=4H^2-2K$ and $\int K=2\pi\chi$.\\
+Optimality & \pass & Sphere radius $r$: $\mathcal L=2\pi r$, $A=4\pi r^2$, $\mathcal W=4\pi$, $\chi=2$.\\
+Equality characterization & \pass & Jensen equality forces equal squared principal curvatures; Cauchy--Schwarz forces constant $|B|$. Nontrivial compact minimal components cannot occur.\\
+Projected contour extension & \pass & The new coarea weight is $|\langle Bu,u\rangle|$, the absolute normal curvature, not $|Bu|$.\\
+\bottomrule
+\end{tabularx}
+
+\section*{Editorial and mathematical flags}
+\begin{enumerate}[leftmargin=*,itemsep=4pt]
+\item \textbf{F1 --- Incorrect submersion wording (repaired).} The source calls $p\mapsto N(p)\cdot u$ a submersion; a real-valued smooth function on a compact surface always has critical points. Only the zero level needs to be regular for almost all views.
+\item \textbf{F2 --- Unjustified transversality/stratification claim (repaired).} The source appeals to a codimension-one set without constructing the relevant map or proving the stratification. Sard's theorem on the incidence manifold is sufficient.
+\item \textbf{F3 --- Missing coarea Jacobian calculation (repaired).} On $M$ the relevant Jacobians are $J_2\pi_p=(1+|Bu|^2)^{-1/2}$ and $J_2\pi_u=|Bu|(1+|Bu|^2)^{-1/2}$.
+\item \textbf{F4 --- Degenerate ellipse ambiguity (repaired).} The ellipse perimeter is interpreted as the length of its parameterized image, counting a collapsed segment twice.
+\item \textbf{F5 --- Visibility terminology (qualified).} Spatial rim length, projected rim length with multiplicity, and visible image silhouette length are not equal in general. The corrected paper explicitly distinguishes them.
+\item \textbf{F6 --- Literature and priority (open).} Existing work defines and studies contour generators and apparent contours. A targeted search did not verify a previous statement of these exact averaged formulas, but absence of a search hit is not evidence of novelty.
+\item \textbf{F7 --- Added results and author attribution (open).} Equality classification, lower comparison, and projected identity were developed during this review. They should not be silently presented as content of the original note or submitted without authorial review.
+\item \textbf{F8 --- Hypothesis scope (qualified).} The proof covers compact smooth oriented surfaces without boundary in $\mathbb R^3$. A surface with boundary or an unbounded surface would require separate hypotheses or boundary/integrability provisions.
+\end{enumerate}
+
+\section*{Independent numerical falsification attempts}
+For a ring torus $(R,r)$, $R>r$, we computed both (i) the principal-curvature integrals and (ii) the lengths of directly traced rim curves for generic viewing directions followed by a directional average. Fixed-grid quadrature initially struggled near horizontal views; adaptive quadrature resolves the narrow peaks. The new projected-length formula was tested by the same two independent methods.
+\begin{center}\small
+\begin{tabular}{@{}lrrr@{}}\toprule
+Torus $(R,r)$ & $\mathcal L$ & $\mathcal L_{\mathrm{pr}}$ & bound $\sqrt{A\mathcal W/2}$\\\midrule
+$(2,1)$ & 28.23365907 & 23.19516093 & 29.99711051\\
+$(\sqrt{2},1)$ & 21.60993419 & 18.17206067 & 23.47400755\\
+$(3,0.5)$ & 38.46296443 & 30.57402222 & 42.16912718\\\bottomrule
+\end{tabular}
+\end{center}
+The independently integrated direct rim values differed from the first column by less than $2\times10^{-6}$; projected values differed by less than $10^{-5}$ at the chosen resolution. All are below the proposed upper bound. Sphere tests at radii $0.5$, $1$, and $3$ give exact equality analytically. See the accompanying \texttt{numerical\_verification.py} and its printed results. These tests are supplementary: a finite selection of surfaces cannot establish a theorem.
+
+\section*{Possible strengthening and practical interpretation}
+The full rim length obeys the two-sided bound
+\[
+\frac1\pi\int_\Sigma |B|\,dA\leq\mathcal L(\Sigma)\leq
+\frac1{2\sqrt2}\int_\Sigma |B|\,dA.
+\]
+For projected \emph{parameterized} contours, the independent identity is
+\[
+\mathcal L_{\mathrm{pr}}(\Sigma)=\frac1{4\pi}\int_\Sigma\int_0^{2\pi}
+|\kappa_1\cos^2\theta+\kappa_2\sin^2\theta|\,d\theta\,dA.
+\]
+It yields $\frac12\int|H|\,dA\leq\mathcal L_{\mathrm{pr}}\leq\mathcal L$; for a convex ovaloid the left inequality becomes an equality. These observations are useful when the motivating application concerns two-dimensional projected contours rather than spatial rim curves.
+
+\section*{What remains unverified}
+\textbf{Novelty:} no exhaustive review of the classical integral-geometry or computer-vision literature was performed; no claim of original priority is endorsed. \textbf{Publication:} the manuscript has not been externally peer reviewed. \textbf{Formal verification:} the proofs were audited mathematically and with reproducible numerical examples, but not translated into a proof assistant such as Lean or Coq. \textbf{Applications:} no image-processing benchmarks or visibility-aware formulas have been established.
+
+\section*{Sources used for background checks}
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item H. Federer, \emph{Geometric Measure Theory}, Springer, 1969 (coarea theorem).
+\item M. P. do Carmo, \emph{Differential Geometry of Curves and Surfaces}, Prentice--Hall, 1976.
+\item S. Plantinga and G. Vegter, ``Computing Contour Generators of Evolving Implicit Surfaces,'' \emph{ACM Transactions on Graphics} \textbf{25} (2006), 1243--1280; \href{https://research.rug.nl/en/publications/computing-contour-generators-of-evolving-implicit-surfaces/}{publication page}.
+\end{itemize}
+\vfill\small\emph{Audit disposition: approve the corrected mathematical statements under the explicit assumptions; request originality and authorship review before journal submission.}
+\end{document}
