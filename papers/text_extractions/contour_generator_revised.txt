@@ -1,0 +1,384 @@
+TEXT-ONLY ACCESS COPY (automatically extracted from attached PDF)
+This is not the original typeset PDF; mathematical symbols may be degraded by extraction.
+Original PDF is retained in the local complete research ZIP.
+
+<PARSED TEXT FOR PAGE: 1 / 6>
+      Directional Averages of Contour Generators on Closed
+                            Surfaces:
+      A Sharp Willmore-Type Bound and a Projected-Length
+                           Identity
+
+                                        İmamverdi Bədəlov
+               Original two-page note; proof reconstructed and extended in this audit edition
+
+                          Mathematical verification edition — 4 November 2026
+
+
+
+
+                                                 Abstract
+     For a smooth compact boundaryless oriented surface Σ ⊂ R3 and a unit viewing direction u,
+     let Γu = {p ∈ Σ : ⟨N (p), u⟩ = 0} be its orthographic contour generator. We give a complete
+     coarea argument for an exact formula for the direction-averaged spatial length L(Σ) in terms of
+     the image of the unit tangent circle under the ∫ shape  operator. This implies the sharp estimate
+     L(Σ)2 ≤ A(Σ)2
+                    (W(Σ)  −  πχ(Σ)),  where  W   =   H 2
+                                                          dA and H = (κ1 + κ2 )/2. Equality on a con-
+     nected surface holds exactly for round spheres. We also derive an analogous exact formula for
+     projected contour length counted with multiplicity, and give comparisons and scope qualifica-
+     tions. The original bound is from the supplied note; the projected-length statements and equality
+     analysis are explicitly identified as additions made during the mathematical audit. No claim of
+     bibliographic novelty is made.
+
+Keywords: contour generator; coarea formula; Gauss map; principal curvature; Willmore energy;
+silhouette length.
+MSC (indicative): 53A05, 49Q15, 53C42.
+
+
+1   Introduction and precise setting
+Let Σ ⊂ R3 be a nonempty, compact, C ∞ , embedded, orientable two-dimensional surface without
+boundary. We do not assume convexity or connectedness. Fix a smooth unit normal field N : Σ →
+S2 and write
+                                                         κ1 + κ2
+                       Bp = −dNp : Tp Σ −→ Tp Σ,      H=         , K = κ1 κ2 ,
+                                                             2
+where κ1 , κ2 are the principal curvatures (eigenvalues of B). Put
+                              ∫               ∫                   √
+                          A=     dA,     W=      H 2 dA,    |B| = κ21 + κ22 .
+                                Σ                 Σ
+
+For a viewing direction u ∈ S2 define the spatial contour generator, also called the rim, by
+
+                                      Γu = {p ∈ Σ : hN (p), ui = 0}.
+
+For almost every u, this is a compact smooth one-dimensional submanifold of Σ (Lemma 2.1). For
+such directions set ℓ(u) = H1 (Γu ), and define its mean length using ordinary surface measure dω
+on S2 :                                           ∫
+                                               1
+                                       L(Σ) =        ℓ(u) dω(u).                               (1)
+                                              4π S2
+Values assigned to ℓ(u) on the exceptional null set do not change this integral.
+The quantity in (1) includes all rim components, including invisible parts. It is not, by definition,
+the length of the visible silhouette in an image. The contour-generator/apparent-contour distinc-
+tion is standard in geometric vision; see, for example, [3]. The original supplied note proposed
+a sharp inequality for (1) but abbreviated the crucial coarea step. Below that step is fully recon-
+structed.
+
+
+                                                      1
+<PARSED TEXT FOR PAGE: 2 / 6>
+DIRECTIONAL CONTOUR AVERAGES                                                                    Corrected mathematical exposition
+
+
+
+2    Generic directions and the exact spatial-length formula
+Lemma 2.1 (Generic regularity). The set of u ∈ S2 for which 0 is not a regular value of p 7→ hN (p), ui
+has spherical measure zero. For every other u, Γu is a compact smooth one-dimensional submanifold
+(possibly empty).
+
+Proof. Consider F : Σ × S2 → R, F (p, u) = hN (p), ui, and set M = F −1 (0). At (p, u) ∈ M , the vector
+N (p) belongs to Tu S2 ; hence
+                               du F (p, u)[N (p)] = hN (p), N (p)i = 1.
+Thus 0 is a regular value of F , and M is a compact smooth three-manifold. Consider the smooth
+projection πu : M → S2 , (p, u) 7→ u. Sard’s theorem shows that the critical values of πu form a set
+of spherical measure zero. For any regular value u, the fiber πu−1 (u) is a smooth one-dimensional
+submanifold and is naturally identified with Γu . Equivalently, the differential of p 7→ F (p, u) does
+not vanish along the zero set.
+
+At p ∈ Σ, let Cp = {u ∈ S2 : hN (p), ui = 0}, the unit circle in Tp Σ. The curvature-ellipse perimeter
+density is
+                           ∫                   ∫ 2π √
+                                                      κ1 (p)2 cos2 θ + κ2 (p)2 sin θ dθ.           (2)
+                                                                                  2
+                  PB (p) =    |Bp u| dH (u) =
+                                        1
+                             Cp                            0
+
+Equation (2) is the length of the parametrized image of Cp under Bp . It remains the definition when
+an axis vanishes: a collapsed ellipse is counted with its limiting parametrized perimeter.
+Theorem 2.2 (Exact average spatial length). For every Σ as above,
+                                                               ∫
+                                                1
+                                        L(Σ) =                         PB (p) dA(p).                                          (3)
+                                               4π                  Σ
+
+
+In particular the spherical average is finite.
+
+Proof. Equip Σ × S2 with the product Riemannian metric, and keep M = F −1 (0). At (p, u) ∈ M we
+have u ∈ Tp Σ, and the two partial gradients of F are
+
+                            ∇p F = −Bp u,          ∇u F = N (p),                     |∇u F | = 1.
+
+Write a = |Bp u|. Since M is a hypersurface of the four-manifold Σ × S2 , the two-dimensional Jaco-
+bians of the restrictions of the coordinate projections πp : M → Σ and πu : M → S2 are
+
+                                                 1                                     a
+                                  J 2 πp = √          ,                 J 2 πu = √          .                                 (4)
+                                               1 + a2                                1 + a2
+Indeed, the unit normal of M is proportional to (∇p F, ∇u F ); the 2-Jacobian of projection to either
+two-dimensional factor equals the norm of the normal’s projection to the other factor. This also
+proves (4) when a = 0.
+Apply the coarea formula to πu and then to πp (see [2]). Using (4), with no division by a vanishing
+quantity,
+                      ∫                      ∫
+                            H1 (Γu ) dω(u) =     J2 πu dH3
+                        S
+                                             ∫M
+                          2
+
+                                                 J 2 πu
+                                           =            J2 πp dH3
+                                               M J 2 πp
+                                             ∫ (∫                   )
+                                               =                              |Bp u| dH1 (u) dA(p)
+                                                       Σ           πp−1 (p)
+                                                   ∫
+                                               =           PB (p) dA(p).
+                                                       Σ
+
+Here J2 πp > 0 everywhere, and the fibers πp−1 (p) are precisely Cp . Divide by 4π. Compactness and
+the smoothness of B give finiteness.
+
+
+                                                                   2
+<PARSED TEXT FOR PAGE: 3 / 6>
+DIRECTIONAL CONTOUR AVERAGES                                                      Corrected mathematical exposition
+
+
+
+3    Sharp Willmore-type inequality and equality cases
+Lemma 3.1 (Sharp pointwise ellipse estimates). For any real numbers κ1 , κ2 ,
+                     √            ∫ 2π √                             √
+                                        κ21 cos2 θ + κ22 sin θ dθ ≤ π 2(κ21 + κ22 ).                            (5)
+                                                            2
+                    4 κ21 + κ22 ≤
+                                     0
+
+The upper equality holds if and only if κ21 = κ22 (including both zero). If κ21 + κ22 > 0, lower equality
+holds precisely when one of κ1 , κ2 is zero.
+                                                                                             √
+Proof. For the upper estimate, Jensen’s inequality for the strictly concave function t 7→ t, together
+with the averages of cos2 θ and sin θ, gives
+                                     2
+
+
+                                ∫ 2π √                           √
+                             1                                     κ21 + κ22
+                                        κ1 cos θ + κ2 sin θ dθ ≤
+                                         2    2      2   2
+                                                                             .
+                            2π 0                                       2
+
+Equality is equivalent to constancy of the expression under the square root for almost every θ,
+hence to κ21 = κ22 .
+For the lower estimate let q = κ21 + κ22 > 0 and t = κ21 /q. The function
+                                           ∫ 2π √
+                                                    t cos2 θ + (1 − t) sin θ dθ
+                                                                         2
+                                  G(t) =
+                                            0
+
+is concave on [0, 1], so G(t) ≥ (1 − t)G(0) + tG(1) = 4. Strict concavity in the interior gives the
+asserted equality condition. The case q = 0 is immediate.
+Theorem 3.2 (Sharp Willmore-type upper bound). Let χ(Σ) denote the Euler characteristic. Then
+
+                                                A(Σ) (             )
+                                     L(Σ)2 ≤           W(Σ) − πχ(Σ) .                                           (6)
+                                                 2
+
+The coefficient 1/2 is optimal. If Σ is connected, equality holds if and only if Σ is a round sphere. In
+general, equality holds exactly for finite disjoint unions of round spheres of a common radius.
+
+Proof. Theorem 2.2 and the upper bound of Lemma 3.1 yield
+                                     ∫              √ ∫
+                                   1             1
+                          L(Σ) ≤ √      |B| dA ≤ √    A    |B|2 dA.
+                                  2 2 Σ         2 2      Σ
+
+
+The identity |B|2 = κ21 + κ22 = 4H 2 − 2K and Gauss–Bonnet imply
+                              ∫                  ∫
+                                 |B| dA = 4W − 2
+                                    2
+                                                   K dA = 4(W − πχ(Σ)).                                         (7)
+                              Σ                         Σ
+
+Squaring proves (6).
+A round sphere of radius r has Γu a great circle of length 2πr for every u; also A = 4πr2 , W = 4π
+and χ = 2. Thus equality holds and the constant is optimal.
+Conversely, suppose equality holds. Equality in the Cauchy–Schwarz step forces |B| ≡ c on all of
+Σ; equality in the integrated Jensen estimate forces κ21 = κ22 at every point (the deficit is contin-
+uous and nonnegative). We must have c > 0: otherwise dN = 0 everywhere, so each connected
+component is contained in a plane, impossible for a compact boundaryless immersed surface. Con-
+sequently on each connected component K ∈ {c2 /2, −c2 /2}, and continuity forces a constant sign.
+If K < 0 on a component, κ1 = −κ2 there and H ≡ 0. This would be a compact boundaryless
+minimal surface in R3 , which is impossible: each coordinate function of the immersion would be
+harmonic and hence constant. Therefore K > 0, κ1 = κ2 on each component, and the component
+is totally umbilic with constant nonzero principal curvature. It is a round sphere. Since |B| = c
+globally, all radii coincide. Conversely, such a union attains equality by direct substitution.
+
+
+
+
+                                                         3
+<PARSED TEXT FOR PAGE: 4 / 6>
+DIRECTIONAL CONTOUR AVERAGES                                                            Corrected mathematical exposition
+
+
+
+Corollary 3.3 (Comparison with total absolute curvature of the shape operator). For every Σ under
+consideration,
+                                ∫                       ∫
+                              1                      1
+                                   |B| dA ≤ L(Σ) ≤ √        |B| dA.                            (8)
+                              π Σ                  2 2 Σ
+Both numerical constants are optimal at the pointwise ellipse level. No claim of global equality in
+the lower estimate is made.
+
+Proof. Integrate both sides of (5) and apply (3).
+
+
+4    Projected contour length and visible silhouettes
+For a regular direction u write Πu : R3 → u⊥ for orthogonal projection. Define the length of the
+parametrized projected contour, counting multiplicity, by
+                            ∫                                     ∫
+                                                                1
+                  ℓpr (u) =      |Πu Tu (p)| dH (p),
+                                               1
+                                                     Lpr (Σ) =       ℓpr (u) dω(u),           (9)
+                              Γu                               4π S2
+
+where Tu is any local unit tangent to Γu . This is independent of its sign and accounts for multiple
+traced branches even when the planar images overlap.
+Theorem 4.1 (Exact averaged projected-length formula; audit extension). Under the same hypothe-
+ses,
+                                 ∫ ∫ 2π
+                               1
+                                        κ1 (p) cos2 θ + κ2 (p) sin θ dθ dA(p).             (10)
+                                                                  2
+                    Lpr (Σ) =
+                              4π Σ 0
+
+Consequently,                                                           √
+                                ∫
+                            1                                               A
+                                        |H| dA ≤ Lpr (Σ) ≤ L(Σ) ≤             (W − πχ(Σ)).                          (11)
+                            2       Σ                                       2
+If κ1 κ2 ≥ 0 everywhere (in particular for a convex ovaloid), then
+                                                     ∫
+                                                   1
+                                         Lpr (Σ) =     |H| dA.                                                      (12)
+                                                   2 Σ
+
+Proof. At a regular rim point (p, u), the tangent plane contains u and the gradient of p 7→ F (p, u) is
+−Bp u 6= 0. If J denotes a rotation by a right angle in the oriented tangent plane, a unit tangent to
+Γu is T = JBp u/|Bp u|, up to sign. The tangent-space vectors u and Ju form an orthonormal basis;
+therefore
+                                                           |hBp u, ui|
+                                     |Πu T | = |hT, Jui| =             .
+                                                             |Bp u|
+Apply the coarea formula to πu : M → S2 with weight |Πu T |, then to πp : M → Σ, exactly as in
+the proof of Theorem 2.2. Where Bp u = 0, the πu -Jacobian vanishes; the product appearing after
+coarea extends as |hBp u, ui| = 0. Thus
+                           ∫                   ∫ ∫
+                               ℓpr (u) dω(u) =     |hBp u, ui| dH1 (u) dA(p).
+                                S2                    Σ    Cp
+
+
+In a principal frame hBp u, ui = κ1 cos2 θ + κ2 sin θ, proving (10). The triangle inequality gives
+                                                           2
+
+
+                ∫ 2π                                      ∫ 2π
+                       |κ1 cos2 θ + κ2 sin θ| dθ ≥                 (κ1 cos2 θ + κ2 sin θ) dθ = 2π|H|.
+                                              2                                     2
+
+                 0                                         0
+
+Also |hBp u, ui| ≤ |Bp u|; integrating yields Lpr ≤ L. The last inequality is Theorem 3.2. When both
+principal curvatures have the same sign, the triangle inequality is an equality pointwise, proving
+(12).
+
+
+
+
+                                                               4
+<PARSED TEXT FOR PAGE: 5 / 6>
+DIRECTIONAL CONTOUR AVERAGES                                                   Corrected mathematical exposition
+
+
+
+Remark 4.2 (What is—and is not—a visible contour). A visible silhouette from an opaque surface
+consists of some of the projected rim points; its image-set length is no greater than the length of
+all parametrized projected rim branches. Thus, whenever visibility is defined in the usual ortho-
+graphic setting and ℓvis (u) denotes the one-dimensional Hausdorff length of the visible silhouette,
+ℓvis (u) ≤ ℓpr (u) ≤ ℓ(u) for almost every u. Theorem 3.2 consequently bounds average visible sil-
+houette length from above, but (10) is not an exact formula for that visible length when occlusion
+occurs. For a round sphere all three quantities agree for every view.
+
+
+5   Checks, interpretation, and scope
+
+Sphere check
+For a round sphere of radius r, |κ1 | = |κ2 | = 1/r, so PB = 2π/r. Theorem 2.2 gives L = 2πr. Its
+projected contours are great circles contained in the projection plane, so Lpr = 2πr as well. Theo-
+rem 3.2 is an equality.
+
+
+Torus check
+For a ring torus with major radius R > r > 0 and tube radius r, the area and Willmore energy are
+                                                                π 2 R2
+                            A = 4π 2 Rr,        χ = 0,      W= √         .
+                                                              r R2 − r 2
+Up to a simultaneous change of signs, the principal curvatures at meridional angle t are 1/r and
+cos t/(R + r cos t). Numerical integrations of (3) and (10) give the figures below, which were also
+independently checked by direct parametrization of the rim curves.
+
+                               (R, r)            L        Lpr    bound for L
+                               (2,
+                                √ 1)      28.233659   23.19516     29.997111
+                               ( 2, 1)    21.609934   18.17206     23.474008
+                               (3, 0.5)   38.462964   30.57402     42.169127
+
+These are numerical consistency checks, not a proof of the general theorem. A reproducible stan-
+dalone test script accompanies this document.
+
+
+Interpretation and limitations
+The upper bound is dimensionally consistent: L has units of length; A has units of length squared;
+and W and χ are dimensionless. It controls the average, not the maximum over viewing directions.
+It does not impose a bound in terms of area and genus alone; the curvature energy is essential.
+The projected identity measures all projected rim branches with multiplicity, whereas an image’s
+outer silhouette can exclude occluded branches. Finally, since the proof uses coarea, a pointwise
+ellipse estimate, Cauchy–Schwarz and Gauss–Bonnet, novelty should not be inferred from validity
+or sharpness alone.
+
+
+Attribution and bibliographic-status statement
+The central definition, curvature-ellipse representation, and Willmore-type inequality were
+present in the two-page document supplied under the name İmamverdi Bədəlov. This edition
+supplies a corrected proof, a complete equality analysis, the two-sided comparison, and the
+projected-length extension. These additions were constructed during an independent AI-assisted
+mathematical review; permission, final authorship, and claims of priority must be resolved by
+a human author before scholarly submission. A targeted literature check located background
+sources on contour generators and standard geometric techniques but did not establish whether
+the stated averaged identities previously appeared elsewhere.
+
+
+                                                      5
+<PARSED TEXT FOR PAGE: 6 / 6>
+DIRECTIONAL CONTOUR AVERAGES                                          Corrected mathematical exposition
+
+
+
+References
+[1] M. P. do Carmo, Differential Geometry of Curves and Surfaces, Prentice–Hall, 1976.
+[2] H. Federer, Geometric Measure Theory, Springer, 1969.
+[3] S. Plantinga and G. Vegter, “Computing contour generators of evolving implicit surfaces,” ACM
+    Transactions on Graphics 25 (2006), no. 4, 1243–1280.
+
+
+
+
+                                                6
