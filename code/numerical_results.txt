@@ -1,0 +1,17 @@
+Sphere tests (exact formulas)
+R=0.5: rim=3.1415926536, bound=3.1415926536, gap=+0
+R=1.0: rim=6.2831853072, bound=6.2831853072, gap=+0
+R=3.0: rim=18.8495559215, bound=18.8495559215, gap=+0
+
+Torus tests (R>r; independent integrations)
+R=2.00000000,r=1.000: A=78.95683521, W=22.79287503, bound=29.99711051
+  rim:     curvature=28.23365907, direct=28.23365732, difference=-1.7561e-06
+  project: curvature=23.19516093, direct=23.19516996, difference=+9.0243e-06
+R=1.41421356,r=1.000: A=55.83091360, W=19.73920880, bound=23.47400755
+  rim:     curvature=21.60993419, direct=21.60993271, difference=-1.4810e-06
+  project: curvature=18.17206067, direct=18.17205809, difference=-2.5786e-06
+R=3.00000000,r=0.500: A=59.21762641, W=60.05763469, bound=42.16912718
+  rim:     curvature=38.46296443, direct=38.46296292, difference=-1.5157e-06
+  project: curvature=30.57402222, direct=30.57402798, difference=+5.7614e-06
+
+All numerical cross-checks passed (finite-resolution consistency checks).
