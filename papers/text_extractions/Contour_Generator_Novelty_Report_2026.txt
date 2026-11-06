@@ -1,0 +1,200 @@
+TEXT-ONLY ACCESS COPY (automatically extracted from attached PDF)
+This is not the original typeset PDF; mathematical symbols may be degraded by extraction.
+Original PDF is retained in the local complete research ZIP.
+
+<PARSED TEXT FOR PAGE: 1 / 3>
+ NOVELTY & PRIOR-ART ASSESSMENT
+ Directional averages of 3D contour generators; Willmore-type bounds; genus-dependent
+ extremal problems
+ Review date: 6 November 2026 | Scope: mathematical novelty, not authorship or
+ publication priority certification
+
+
+ Executive assessment: The supplied manuscript contains mathematically defensible statements, but its
+ original Willmore inequality is an elementary consequence of a coarea identity, pointwise ellipse estimates,
+ Cauchy–Schwarz, and Gauss–Bonnet. There is extensive prior work on averaged silhouettes,
+ Cauchy/Minkowski projection formulas, and curvature integrals. We did not find the exact unprojected
+ formula stated verbatim in the targeted searches; absence from these searches does not imply novelty. The
+ best opportunity is a genuinely nontrivial, sharp fixed-genus optimization or stability result.
+
+ Recommendation: Do not submit the existing six-page revision as a stand-alone novel research theorem yet. Treat it as a
+ correct preliminary lemma or expository note while developing a stronger claim with verified priority.
+
+
+ 1. Mathematical object and the claims under review
+ For a smooth, compact, boundaryless oriented surface S in three-dimensional Euclidean space, set Γ(u) = {p
+ in S : N(p)·u = 0}. The mean spatial length of the complete (possibly hidden) contour generators is L =
+ (1/4π)∫     length(Γ(u)) du. Write A for area, W = ∫ H² dA for the Willmore energy with H = (κ₁+κ₂)/2, and χ for
+        S²                                              S
+ Euler characteristic.
+
+                                                 L² ≤ (A/2)(W − πχ)
+
+ The original claim is sharp globally because spheres attain equality. The exact coarea representation is L =
+ (1/4π)∫ ∫₀²π √(κ₁²cos²θ + κ₂²sin²θ) dθ dA. It is a natural instance of the coarea formula for a Gauss-map
+        S
+ incidence relation, which significantly reduces the expected novelty of the derivation.
+
+
+ 2. Closest and most consequential prior art
+ [1] R. E. Miles (1975): An explicit derivation of Minkowski-type mean-projection identities for convex sets.
+ In particular, random line-projection lengths are expressed through total mean curvature. This puts convex
+ projected-contour formulas squarely within classical integral geometry, although they are not literally the
+ same as an unprojected rim-length formula.
+
+ [2] M. McGuire (2004): Expected silhouette-edge counts of polyhedral models are related to sums of
+ dihedral angles. This provides early and direct evidence that silhouette expectations over directions are
+ established research objects.
+
+ [3] M. Glisse and S. Lazard (2008): An Upper Bound on the Average Size of Silhouettes, Discrete &
+ Computational Geometry 40, 241–257. The work studies average silhouette lengths in the setting of
+ nonconvex surfaces and establishes expected O(√n) mesh-silhouette complexity under geometric
+ approximation hypotheses. The paper distinguishes transparent spatial rims and projected silhouettes, and
+ uses average silhouette length explicitly. It is strong contextual prior art, not an identified publication of
+ the exact inequality at issue.
+
+ [4] S. Plantinga and G. Vegter (2003): Established smooth contour-generator terminology, projected
+ apparent contours, generic singularities, and robust contour algorithms.
+
+ [5] I. Izmestiev (2022): A published survey of mixed volumes and convex inequalities, including the
+ proportionality of total mean curvature and mean width and classical Cauchy/Crofton identities. The convex
+ case requires a careful comparison to this standard theory.
+
+
+
+
+Contour-generator novelty assessment | 6 Nov 2026                                                                          1
+<PARSED TEXT FOR PAGE: 2 / 3>
+ 3. Claim-level novelty ledger
+
+   Claim                                      Assessment / priority risk
+
+
+   Exact spatial coarea formula               Not found verbatim in targeted searches. Very natural general coarea identity,
+                                              so limited intrinsic novelty; priority remains unverified.
+
+
+   Sharp Willmore bound and sphere            Correct under the manuscript assumptions, but follows immediately from
+   equality                                   standard estimates. Low mathematical depth and likely weak as a stand-alone
+                                              paper.
+
+
+   Projected length formula, convex case      Essentially classical projection/total-mean-curvature geometry
+                                              (Miles/Minkowski/Cauchy). Not an appropriate independent novelty claim.
+
+
+   Projected length with multiplicity,        Potentially useful explicit representation. It is a straightforward weighted
+   nonconvex case                             coarea calculation; exact bibliographic antecedent unresolved.
+
+
+   Fixed-genus optimal coefficient c(g)       Plausible research direction with nontrivial variational content. Its open status
+                                              has NOT been established; review further before claiming a new problem.
+
+
+
+
+ 4. A critical false proposal and a correct sharp replacement
+ The proposed genus-independent inequality L² ≤ AW/4 is false; likewise the supporting suggestion ∫|H| dA ≥
+ 2L is false even among convex bodies. A long smoothly rounded cylinder provides explicit asymptotics.
+
+ For a cylinder of radius r and lateral length h (smoothly rounded ends of fixed geometry), as h → ∞:
+
+                                   L ~ 2h ;    A ~ 2πrh ;          W ~ πh/(2r).
+
+ Therefore 4L²/(AW) → 16/π² ≈ 1.62114 > 1. The candidate c(0) = 1 is disproved even for convex genus-zero
+ surfaces.
+
+ Provable convex replacement: for nonnegative principal curvatures, the curvature-ellipse perimeter obeys
+ P(κ₁,κ₂) ≤ 4(κ₁ + κ₂), since √(a²cos²θ + b²sin²θ) ≤ a|cosθ| + b|sinθ|. Consequently L ≤ (2/π)∫H dA and
+ Cauchy–Schwarz yields
+
+                                          L² ≤ (4/π²) AW (convex S).
+
+ The long rounded-cylinder family makes the constant 4/π² sharp within the convex class. This is a useful
+ correction, but its proof uses elementary estimates; a separate prior-art check is needed before calling the
+ exact coefficient new.
+
+
+ 5. A better-formulated extremal programme
+ For each nonnegative integer g, define the dimensionless extremal constant over connected smooth
+ embedded closed surfaces of genus g:
+
+                          c(g) := sup { 4L(S)² / [A(S)W(S)] : genus(S)=g }.
+
+ The sphere gives ratio 1. The rounded-cylinder family gives c(0) ≥ 16/π² ≈ 1.62114. A ring torus with
+ major/minor radii (R,r)=(2,1), based on the manuscript’s numerically integrated contour length L≈28.233659
+ and exact A=8π² and W=4π²/√3, gives c(1) ≥ 1.77176. These are lower bounds, not exact values.
+
+ The original inequality gives 4L²/(AW) ≤ 2[1 + 2π(g−1)/W]. Thus c(0), c(1) ≤ 2; and for g ≥ 1, W ≥ 4π gives
+ c(g) ≤ g+1. None is known here to be optimal.
+
+
+
+
+Contour-generator novelty assessment | 6 Nov 2026                                                                                 2
+<PARSED TEXT FOR PAGE: 3 / 3>
+ Meaningful potential advances: prove an improved upper bound for c(0) or c(1); identify an extremizing
+ or maximizing-sequence geometry; prove quantitative stability near the sphere in a suitably
+ energy-controlled class; or obtain genuinely visibility-aware (occlusion-sensitive) contour estimates. A
+ numerical optimization result alone is a conjecture generator, not a proof.
+
+
+ 6. Publication assessment and safeguards
+
+   Dimension                      Referee assessment
+
+
+   Correctness                    Central inequality and the corrected coarea proof: sound within the stated smooth compact
+                                  setting.
+
+
+   Originality                    Low to uncertain for the existing theorem. Specific identity not ruled out as previously known.
+
+
+   Potential strength             Moderate if a genuinely new sharp c(g) theorem, stability theorem, or nonlocal visibility bound
+                                  is proved.
+
+
+   Readiness                      NOT ready as a claimed novel stand-alone research article.
+
+
+
+ Necessary checks before submission: (i) search MathSciNet/zbMATH and citation networks using
+ “transparent silhouette”, “rim”, “profile curve”, “Gauss map inverse equators”, “mean shadow perimeter”
+ and “contour generator length”; (ii) compare precise object definitions and normalization constants; (iii)
+ disprove candidate inequalities on cylinders, tori and high-curvature necks before numerical optimization; (iv)
+ include the Glisse–Lazard, Miles, McGuire and convex-geometry references; and (v) resolve human
+ authorship and originality attribution for the AI-audit additions.
+
+
+ 7. References / verified bibliographic leads
+ 1. R. E. Miles, “Direct derivations of certain surface integral formulae for the mean projections of a convex set,” Advances in
+ Applied Probability 7 (1975), 818–829. DOI: 10.2307/1426401. https://doi.org/10.2307/1426401
+
+ 2. M. McGuire, “Observations on Silhouette Sizes,” Journal of Graphics Tools 9(1) (2004), 1–12. DOI:
+ 10.1080/10867651.2004.10487594. https://doi.org/10.1080/10867651.2004.10487594
+
+ 3. M. Glisse and S. Lazard, “An Upper Bound on the Average Size of Silhouettes,” Discrete & Computational Geometry 40
+ (2008), 241–257. DOI: 10.1007/s00454-008-9089-3. https://arxiv.org/abs/cs/0702087
+
+ 4. S. Plantinga and G. Vegter, “Contour Generators of Evolving Implicit Surfaces,” University of Groningen proceedings,
+ 2003. https://research.rug.nl/en/publications/contour-generators-of-evolving-implicit-surfaces/
+
+ 5. I. Izmestiev, “Convex Bodies: Mixed Volumes and Inequalities,” in Surveys in Geometry I (2022), 171–203. DOI:
+ 10.1007/978-3-030-86695-2_5. https://doi.org/10.1007/978-3-030-86695-2_5
+
+ 6. E. W. Weisstein, “Cauchy’s Perimeter Formula,” MathWorld.
+ https://mathworld.wolfram.com/CauchysPerimeterFormula.html
+
+ 7. The audited manuscript: I. Bədəlov, “Directional Averages of Contour Generators on Closed Surfaces: A Sharp
+ Willmore-Type Bound and a Projected-Length Identity,” AI-assisted audit revision, 4 November 2026 (user-supplied,
+ unpublished).
+
+ Limits of review: This is a targeted public-web prior-art review supplemented by mathematical checking. It is not an
+ exhaustive MathSciNet/zbMATH database examination, does not certify first publication, and cannot serve as a legal patent
+ novelty opinion or an independent peer-review decision.
+
+
+
+
+Contour-generator novelty assessment | 6 Nov 2026                                                                                   3
